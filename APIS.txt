@@ -1,0 +1,145 @@
+#|| Diseño de una API de un restaurante ||#
+
+GET https//api.coffe.com/drinks
+accept: application/json
+
+Response: 
+    Status code: 200 (OK)
+    Content-Type: application/json
+    {
+        "drinks": [
+        {
+            "code": 1,
+            "name": "Chai tea",
+            "prices":{
+                    "Small": 30,
+                    "Medium": 40,
+                    "Big": 50 
+            } 
+        },
+        {
+            "code": 2,
+            "name": "Frappe",
+            "prices": {
+                    "Small": 30,
+                    "Medium": 40,
+                    "Big": 50 
+            }
+        }]
+    }
+
+GET https//api.coffe.com/deserts
+accept: application/json
+
+Response: 
+    Status code: 200 (OK)
+    Content-Type: application/json
+    {
+        "deserts": [
+        {
+            "code": 3,
+            "name": "Brownie",
+            "price": 55
+        },
+        {
+            "code": 4,
+            "name": "Cake",
+            "price": 60
+        }]
+    }
+
+POST https//api.coffe.com/drinks
+Accept: application/json
+
+Body: 
+{
+    "name": "Bubble tea",
+    "prices": {
+            "Small": 45,
+            "Medium": 60,
+            "Big": 75
+    }
+}
+
+Response:
+    Status code: 201 (Created)
+    Content-Type: application/json
+    {
+       "code": "5",
+        "name": "Bubble tea",
+        "prices": {
+            "Small": 45,
+            "Medium": 60,
+            "Big": 75
+    }
+    }
+
+POST https//api.coffe.com/deserts
+Accept: application/json
+
+Body: 
+{
+    "name": "Chocolate Cake",
+    "price": 55
+}
+
+Response:
+    Status code: 201 (Created)
+    Content-Type: application/json
+    {
+       "id": "6",
+        "name": "Chocolate Cake",
+        "price": 55
+    }
+
+PUT https//api.coffe.com/drinks/5
+Accept: application/json
+
+Body:
+{
+    "prices[Small]": 50
+}
+
+Response:
+    Status code: 201 (Created)
+    Content-Type: application/json
+    {
+        "code": "5",
+        "name": "Bubble tea",
+        "prices": {
+            "Small": 50,
+            "Medium": 60,
+            "Big": 75
+    }
+    }
+
+PUT https//api.coffe.com/deserts/6
+Accept: application/json
+
+Body:
+{
+    "price": 60
+}
+
+Response:
+    Status code: 201 (Created)
+    Content-Type: application/json
+    {
+        "id": "6",
+        "name": "Chocolate Cake",
+        "price": 60
+    }
+
+DELETE: https//api.coffe.com/drinks/3
+Accept: application/json
+
+Response:
+Status code: 200 (OK)
+Content-Type: application/json
+
+DELETE: https//api.coffe.com/menu/6
+Accept: application/json
+
+Response:
+Status code: 200 (OK)
+Content-Type: application/json
